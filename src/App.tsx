@@ -1,25 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+// import React from 'react';
+import { Routes, Route, } from 'react-router-dom';
+
 import './App.css';
 
+import About from './about';
+import Home from './home';
+import Projects from './projects';
+import NotFound from './not-found';
+
+import SiteNav from './components/site-nav';
+import SocialBadges from './components/social-badges';
+
+import MaterialIcons from './utils/material-icons';
+
+import data from './data';
+
+
 function App() {
+  MaterialIcons.init();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SiteNav />
+
+      <main className="app">
+        <div className="hero">
+          <h2 className="text-[65px]">{data.name}</h2>
+        </div>
+
+        <div className="details">
+          <div className='outlet'>
+            <Routes>
+              <Route path="/" element={<Home text={data.home} />} />
+              <Route path="/about" element={<About text={data.about} />} />
+              <Route path="/projects" element={<Projects projects={data.projects} />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+
+          <SocialBadges socialBadges={data.social}/>
+        </div>
+      </main>
+    </>
   );
 }
 

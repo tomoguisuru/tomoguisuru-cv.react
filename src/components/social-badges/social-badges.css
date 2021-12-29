@@ -1,0 +1,9 @@
+.social-badges {
+    @apply z-10 flex absolute bottom-[10px];
+    @apply md:right-[15px] md:flex-col md:bottom-auto;
+    flex: 0;
+}
+
+.social-badges a:hover {
+    @apply text-gray-700;
+}

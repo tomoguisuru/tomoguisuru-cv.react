@@ -1,0 +1,28 @@
+.nav {
+    @apply flex items-center justify-between;
+    @apply min-w-full;
+    @apply absolute top-0 z-20;
+    @apply bg-slate-50 ;
+    @apply md:top-2 md:rounded-full md:px-10 md:py-5 md:min-w-[90%];
+}
+
+.nav .items {
+    @apply flex text-lg text-gray-600
+}
+
+.nav .items a {
+    @apply inline-block mt-0;
+    padding: 0 10px;
+}
+
+.nav .items a.active {
+    @apply text-teal-600;
+}
+
+.nav .items a:hover {
+    @apply text-gray-700;
+}
+
+.nav .actions {
+    @apply flex items-center;
+}
